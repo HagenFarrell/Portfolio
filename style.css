@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: #ffd700; /* Gold like Star Wars text */
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+    cursor: url('assets/lightsaber-cursor.png'), auto; /* Custom lightsaber cursor */
+}
+
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Parallax Starfield Layers (add more in JS) */
+.star-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url('assets/stars.png') repeat;
+    animation: parallax 10s linear infinite;
+}
+
+@keyframes parallax {
+    0% { background-position: 0 0; }
+    100% { background-position: -2000px 0; } /* Adjust for speed */
+}
+
+/* Opening Crawl */
+#crawl {
+    perspective: 400px;
+    height: 100vh;
+    overflow: hidden;
+}
+.crawl-text {
+    transform: rotateX(25deg);
+    animation: crawl 60s linear infinite;
+    font-size: 2em;
+    text-align: justify;
+    width: 50%;
+    margin: 0 auto;
+}
+@keyframes crawl {
+    0% { transform: translateY(100%) rotateX(25deg); }
+    100% { transform: translateY(-100%) rotateX(25deg); }
+}
+
+/* Lightsaber Nav */
+#lightsaber-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+.hilt {
+    width: 50px;
+    height: 200px;
+    background: silver;
+    border-radius: 10px;
+}
+.blade {
+    display: none;
+    position: absolute;
+    top: -300px;
+    width: 10px;
+    height: 300px;
+    background: linear-gradient(to top, red, transparent);
+    box-shadow: 0 0 20px red;
+    animation: ignite 0.5s;
+}
+#lightsaber-nav:hover .blade {
+    display: block;
+}
+@keyframes ignite {
+    0% { height: 0; }
+    100% { height: 300px; }
+}
+.blade li { list-style: none; margin: 10px; }
+.blade a { color: white; text-decoration: none; }
+
+/* Holocron Cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px;
+}
+.holocron-card {
+    background: rgba(0, 0, 255, 0.1); /* Blue hologram tint */
+    border: 2px solid #00f;
+    padding: 20px;
+    transition: transform 0.3s, filter 0.3s;
+    filter: drop-shadow(0 0 10px #00f);
+}
+.holocron-card:hover {
+    transform: rotateY(10deg) rotateX(10deg) scale(1.1);
+    filter: brightness(1.5) drop-shadow(0 0 20px #00f) url(#hologram-glitch); /* Add SVG filter for glitch */
+    animation: hologram-flicker 0.1s infinite;
+}
+@keyframes hologram-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Death Star Loader */
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: url('assets/deathstar.png') center/cover;
+    animation: explode 2s infinite;
+    z-index: 20;
+}
+@keyframes explode {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); opacity: 0.5; }
+    100% { transform: scale(1); }
+}
+
+/* 3D TIE Fighter Container */
+#tie-fighter-container {
+    width: 100%;
+    height: 500px;
+}
+
+/* Footer Quote */
+#force-quote {
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Hyperspace Transition (add class via JS on nav clicks) */
+.hyperspace {
+    animation: hyperspace-jump 1s;
+}
+@keyframes hyperspace-jump {
+    0% { filter: blur(0); }
+    50% { filter: blur(10px) brightness(2); }
+    100% { filter: blur(0); }
+}

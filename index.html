@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Star Wars Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet"> <!-- Star Wars-like font -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> <!-- For 3D TIE fighter -->
+</head>
+<body>
+    <!-- Loading Spinner: Death Star Explosion -->
+    <div id="loader" class="loader"></div>
+
+    <!-- Opening Crawl Hero Section -->
+    <section id="crawl">
+        <div class="crawl-text">
+            <p>It is a period of creative rebellion.</p>
+            <p>Your Name, striking from a hidden base,</p>
+            <p>has won their first victory against boredom.</p>
+            <p>During the battle, spies managed to steal secret plans</p>
+            <p>to the Empire's ultimate weapon: YOUR PORTFOLIO.</p>
+            <p>Pursued by sinister agents, you race home aboard your starship,</p>
+            <p>custodian of the stolen plans that can save your career</p>
+            <p>and restore freedom to the galaxy....</p>
+        </div>
+    </section>
+
+    <!-- Navigation: Lightsaber Menu -->
+    <nav id="lightsaber-nav">
+        <div class="hilt"></div>
+        <ul class="blade">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#builds">Builds</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects Section: Holocron Cards -->
+    <section id="projects">
+        <h1>Current Projects</h1>
+        <div class="project-grid">
+            <div class="holocron-card">
+                <h2>Project 1: Hyperdrive Engine</h2>
+                <p>Description: Built a real-time web app that simulates hyperspace jumps. Tech: React, Node.js.</p>
+                <img src="assets/project1.jpg" alt="Project 1">
+            </div>
+            <div class="holocron-card">
+                <h2>Project 2: Lightsaber Simulator</h2>
+                <p>Description: AR app for swinging virtual sabers. Tech: Unity, ARKit.</p>
+                <img src="assets/project2.jpg" alt="Project 2">
+            </div>
+            <div class="holocron-card">
+                <h2>Project 3: Droid AI</h2>
+                <p>Description: ML model that translates binary to English. Tech: TensorFlow.</p>
+                <img src="assets/project3.jpg" alt="Project 3">
+            </div>
+        </div>
+        <!-- 3D TIE Fighter for Interactive "Current Builds" -->
+        <div id="tie-fighter-container"></div>
+    </section>
+
+    <!-- Builds Section: Similar to projects, add your builds here -->
+    <section id="builds">
+        <h1>Builds</h1>
+        <!-- Add similar grid/cards for your hardware/software builds -->
+    </section>
+
+    <!-- Contact Section: Comm Link -->
+    <section id="contact">
+        <h1>Contact Via Holocomm</h1>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Transmit</button>
+        </form>
+    </section>
+
+    <!-- Footer with Quote Generator -->
+    <footer>
+        <p id="force-quote">May the Force be with you.</p>
+    </footer>
+
+    <!-- Canvas for Starfield Background -->
+    <canvas id="starfield"></canvas>
+
+    <script src="script.js"></script>
+    <!-- Optional Sound: Lightsaber hum -->
+    <audio id="saber-sound" src="assets/lightsaber.mp3"></audio>
+</body>
+</html>
