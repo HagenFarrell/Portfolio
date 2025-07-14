@@ -36,23 +36,26 @@ body {
 /* Opening Crawl */
 #crawl {
     perspective: 400px;
-    height: 100vh;
+    height: 150vh; /* Taller for longer scroll story */
     overflow: hidden;
     position: relative;
 }
+
 .crawl-text {
-    transform: rotateX(25deg);
-    animation: crawl 90s linear infinite;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotateX(25deg);
+    animation: crawl 90s linear infinite; /* Slower for readability */
     font-size: 1.8em;
     text-align: justify;
     width: 60%;
-    margin: 0 auto;
     line-height: 1.5;
-    text-shadow: 0 0 10px #ffd700;
+    text-shadow: 0 0 10px #ffd700; /* Glowing text */
 }
+
 @keyframes crawl {
-    0% { transform: translateY(150%) rotateX(25deg); }
-    100% { transform: translateY(-150%) rotateX(25deg); }
+    0% { top: 150%; } /* Start from bottom */
+    100% { top: -150%; } /* Scroll to top */
 }
 
 /* Fade in for sections on-scroll */
@@ -152,7 +155,7 @@ section:visible {
     cursor: pointer;
 }
 
-/* Hyperspace Transition (add class via JS on nav clicks) */
+/* Hyperspace Transition */
 .hyperspace {
     animation: hyperspace-jump 1s;
 }
@@ -160,4 +163,57 @@ section:visible {
     0% { filter: blur(0); }
     50% { filter: blur(10px) brightness(2); }
     100% { filter: blur(0); }
+}
+
+/* Holocomm Contact Styles */
+#contact {
+    padding: 50px;
+    background: radial-gradient(circle, rgba(0,0,50,0.5), black); /* Starry comm panel feel */
+    position: relative;
+}
+.holocomm-panel {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid #00f; /* Blue hologram border */
+    background: rgba(0, 0, 255, 0.1);
+    filter: drop-shadow(0 0 10px #00f);
+    animation: force-pull 1s ease-out;
+}
+@keyframes force-pull {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+.holo-input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00f;
+    color: #ffd700;
+    font-family: 'Orbitron', sans-serif;
+    transition: box-shadow 0.3s;
+}
+.holo-input:focus {
+    box-shadow: 0 0 15px #00f;
+    animation: hologram-flicker 0.1s infinite;
+}
+.transmit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #ff0000, #ff4500); /* Red saber glow */
+    border: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.transmit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff0000;
+    animation: ignite 0.5s;
+}
+@keyframes ignite {
+    0% { box-shadow: 0 0 0 #ff0000; }
+    100% { box-shadow: 0 0 20px #ff0000; }
 }
