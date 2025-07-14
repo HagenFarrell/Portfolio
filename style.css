@@ -38,18 +38,32 @@ body {
     perspective: 400px;
     height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 .crawl-text {
     transform: rotateX(25deg);
-    animation: crawl 60s linear infinite;
-    font-size: 2em;
+    animation: crawl 90s linear infinite;
+    font-size: 1.8em;
     text-align: justify;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
+    line-height: 1.5;
+    text-shadow: 0 0 10px #ffd700;
 }
 @keyframes crawl {
-    0% { transform: translateY(100%) rotateX(25deg); }
-    100% { transform: translateY(-100%) rotateX(25deg); }
+    0% { transform: translateY(150%) rotateX(25deg); }
+    100% { transform: translateY(-150%) rotateX(25deg); }
+}
+
+/* Fade in for sections on-scroll */
+section:not(#crawl) {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+section:visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Lightsaber Nav */
